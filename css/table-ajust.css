@@ -1,0 +1,85 @@
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    table-layout: fixed;
+  }
+
+  .table colgroup col:nth-child(1) {
+    width: 3%;
+  }
+
+  .table colgroup col:nth-child(2) {
+    width: 62%;
+  }
+
+  .table colgroup col:nth-child(3) {
+    width: 30%;
+  }
+
+  .table colgroup col:nth-child(4) {
+    width: 5%;
+  }
+
+  .table th,
+  .table td {
+    padding: 1rem 1.2rem;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    word-wrap: break-word;
+  }
+
+  .table thead tr {
+    background-color: #f0f4ff;
+  }
+
+  .table thead th {
+    color: #2563eb;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  .btn-info {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
+  .btn-info:hover {
+    background-color: #1e40af;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background-color: #e0e7ff;
+    color: #2563eb;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .hover-text {
+    font-size: 0.8rem;
+    color: #666;
+  }

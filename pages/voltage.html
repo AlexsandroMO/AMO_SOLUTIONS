@@ -1,0 +1,136 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Voltage Drop Calculator</h3>
+  </div>
+
+    <div class="div-alin">
+      <div class="form-group" id="form-select" style="width: 280px; margin-bottom: 1rem;">
+        <label for="circuit-type">Circuit Type</label>
+        <select class="form-control" id="circuit-type" name="circuit-type">
+          <option value="" selected>–</option>
+          <option value="Single-Phase">Single-Phase</option>
+          <option value="T Single-phase">T Single-phase</option>
+        </select>
+      </div>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Circuit Data</th>
+            <th>Data</th>
+            <th style="width: 40px">Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1.</strong></td>
+            <td><strong>Nominal Voltage (Vn)</strong></td>
+            <td>
+              <select class="form-control" id="nominalTension" name="nominalTension">
+                <option value="" selected>–</option>
+                <option>5</option><option>12</option><option>24</option><option>36</option><option>70</option>
+                <option>100</option><option>110</option><option>115</option><option>120</option><option>125</option>
+                <option>127</option><option>220</option><option>230</option><option>254</option><option>240</option>
+                <option>380</option><option>440</option><option>480</option><option>760</option><option>1000</option>
+                <option>13800</option><option>69000</option><option>138000</option>
+              </select>
+            </td>
+            <td><span class="badge">V</span></td>
+          </tr>
+          <tr>
+            <td><strong>2.</strong></td>
+            <td>
+            <strong title="Se você já tem a Potência (W), não precisa informar a Corrente">Power (P)</strong>
+          </td>
+            <td><input type="number" class="form-control rounded-0" id="powerCircuit" placeholder="0" /></td>
+            <td><span class="badge">W</span></td>
+          </tr>
+          <tr>
+            <td><strong>3.</strong></td>
+            <td>
+              <strong title="Se você já tem a Corrente (A), não precisa informar a Potência">Nominal Current (In)</strong>
+            </td>
+            <td><input type="number" class="form-control rounded-0" id="nominalCorrent" placeholder="0" /></td>
+            <td><span class="badge">A</span></td>
+          </tr>
+            <td>4.</td>
+            <td>Power Factor (fP)</td>
+            <td><input type="number" step="0.01" min="0" max="1" class="form-control rounded-0" id="potencialFactor" value="1" /></td>
+            <td><span class="badge">-</span></td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>Dimension Current (Idim)</td>
+            <td><input type="number" class="form-control rounded-0" id="dimensionCorrent" readonly /></td>
+            <td><span class="badge">A</span></td>
+          </tr>
+          <tr>
+            <td>6.</td>
+            <td>Allowed Voltage Drop (V)</td>
+            <td><input type="number" class="form-control rounded-0" id="dropTension" value="3" /></td>
+            <td><span class="badge">%</span></td>
+          </tr>
+          <tr>
+            <td><strong>7.</strong></td>
+            <td><strong>Circuit Length (L)</strong></td>
+            <td><input type="number" class="form-control rounded-0" id="circuitLenght" placeholder="0" /></td>
+            <td><span class="badge">m</span></td>
+          </tr>
+          <tr>
+            <td>8.</td>
+            <td>Cable Resistance (R)</td>
+            <td><input type="number" step="0.0001" class="form-control rounded-0" id="cableR" placeholder="0.000" readonly /></td>
+            <td><span class="badge">ohm/km</span></td>
+          </tr>
+          <tr>
+            <td>9.</td>
+            <td>Cable Reactance (X)</td>
+            <td><input type="number" step="0.0001" class="form-control rounded-0" id="cableX" placeholder="0.000" readonly /></td>
+            <td><span class="badge">ohm/km</span></td>
+          </tr>
+          <tr>
+            <td>10.</td>
+            <td>Cables per Phase</td>
+            <td><input type="number" class="form-control rounded-0" id="cableFase" value="1" min="1" /></td>
+            <td><span class="badge">-</span></td>
+          </tr>
+          <tr>
+            <td>11.</td>
+            <td>Exercised Voltage (V) Drop</td>
+            <td><input type="number" class="form-control rounded-0" id="dropTensionE" placeholder="0" readonly /></td>
+            <td><span class="badge">%</span></td>
+          </tr>
+          <tr>
+            <td><strong>12.</strong></td>
+            <td><strong>Section to Be Used</strong></td>
+            <td>
+              <select class="form-control select2" id="sectionChoise" style="width: 100%;">
+                <option value="" selected>–</option>
+                <option>0,5</option><option>1</option><option>1,5</option><option>2,5</option><option>4</option>
+                <option>6</option><option>10</option><option>16</option><option>25</option><option>35</option>
+                <option>50</option><option>70</option><option>95</option><option>120</option><option>150</option>
+                <option>185</option><option>240</option><option>300</option>
+              </select>
+            </td>
+            <td><span class="badge">mm²</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-info mt-3" onclick="calcCirc()">Calculate</button>
+    </div>
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer clearfix">
+    <ul class="pagination pagination-sm m-0 float-right">
+      <li class="page-item"><a class="page-link" href="#">«</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">»</a></li>
+    </ul>
+  </div>
+  <!-- /.card-footer -->
+</div>

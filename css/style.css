@@ -1,0 +1,168 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Corpo da página - fundo cinza escuro estilo ChatGPT */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #202123; /* fundo cinza escuro do ChatGPT */
+  color: #e4e6eb; /* texto claro suave */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navegação */
+nav {
+  background-color: #2a2b2f; /* tom escuro mas mais claro que o fundo */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* LOGO */
+.logo {
+  /* removi font-size e font-weight daqui */
+}
+
+.logo a {
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+  
+.logo a:hover {
+  color: #d1d1d1 !important;
+}
+
+/* Menu principal */
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #c5c8d6; /* cinza claro */
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  background-color: #4a90e2; /* azul vibrante no hover */
+  color: #f0f0f0;
+}
+
+/* Aba ativa */
+.menu a.active {
+  background-color: #4a90e2;
+  color: #f0f0f0;
+}
+
+/* Conteúdo principal */
+.div-alin {
+  flex: 1;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+/* Rodapé */
+footer {
+  background-color: #2a2b2f;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #a5a8b5;
+  border-top: 1px solid #3a3b40;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .div-alin {
+    padding: 2rem 1rem;
+  }
+}
+
+
+.badge {
+  color: #554d4d !important; /* texto escuro padrão */
+  background-color: #e2e3e5; /* fundo cinza claro padrão */
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.25em 0.5em;
+  border-radius: 0.35rem;
+}
+
+/* Se usar classes de bg como bg-danger, bg-success, manter texto branco */
+.badge.bg-danger,
+.badge.bg-success,
+.badge.bg-warning,
+.badge.bg-primary,
+.badge.bg-info,
+.badge.bg-secondary,
+.badge.bg-dark {
+  color: #fff !important;
+  background-color: unset; /* deixa o bootstrap controlar */
+}
+
+.tooltip {
+  position: relative;
+  cursor: help;
+  color: #2563eb;
+  border-bottom: 1px dotted #2563eb;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #222;
+  color: #ffea00; /* amarelo para visibilidade */
+  text-align: left;
+  border-radius: 5px;
+  padding: 0.5rem 0.75rem;
+  position: absolute;
+  z-index: 9999;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -110px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  border: 1px solid #444;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
