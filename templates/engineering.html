@@ -1,29 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
   
-<div class="content-wrapper" style="min-height: 581.4px;">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Engineering Solutions!</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index">Home</a></li>
-              <li class="breadcrumb-item active"><a href="alinha-tags.html">Project</a></li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
 
-    <div class="container">
-      <!-- Imagem à esquerda -->
-      <img src="{{ url_for('static', filename='Solutions.png') }}" alt="LOGO DS Grupo" />
-      
-    <!-- Caixinhas de horário empilhadas à direita -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/eng-styles.css') }}" />
+
+<div class="container">
+  <div class="title-eng">
+    Engineering <br> Solutions
+  </div>
+
+  <img class="inicial-log" src="{{ url_for('static', filename='Solutions.png') }}" alt="Inicial-Log" />
+
+  <div class="right-side">
     <div class="time-box-container">
       <div class="time-box">
         <h2>Hora en España</h2>
@@ -38,9 +26,38 @@
         <div class="clock" id="semana">Week 33</div>
       </div>
     </div>
-
   </div>
 </div>
+
+
+<script>
+function updateClocks() {
+  const now = new Date();
+
+  // --- Horário Brasil (São Paulo UTC-3) ---
+  const brasilOptions = { timeZone: 'America/Sao_Paulo', hour12: false };
+  const brasilTime = now.toLocaleTimeString('pt-BR', brasilOptions);
+  document.getElementById('brazil-time').textContent = brasilTime;
+
+  // --- Horário Espanha (Madrid UTC+1 / UTC+2) ---
+  const spainOptions = { timeZone: 'Europe/Madrid', hour12: false };
+  const spainTime = now.toLocaleTimeString('es-ES', spainOptions);
+  document.getElementById('spain-time').textContent = spainTime;
+
+  // --- Semana do ano ---
+  const startOfYear = new Date(now.getFullYear(), 0, 1);
+  const pastDays = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000));
+  const weekNumber = Math.ceil((pastDays + startOfYear.getDay() + 1) / 7);
+  document.getElementById('semana').textContent = 'Week ' + weekNumber;
+}
+
+// Atualiza a cada segundo
+setInterval(updateClocks, 1000);
+
+// Atualiza imediatamente ao carregar a página
+updateClocks();
+</script>
+
 
 
 {% endblock %}

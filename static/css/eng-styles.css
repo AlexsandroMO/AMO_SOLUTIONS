@@ -1,0 +1,156 @@
+/* Container principal: três blocos lado a lado */
+
+.container {
+  display: flex;
+  justify-content: space-between; /* mantém os blocos separados */
+  align-items: center;            /* centraliza verticalmente */
+  padding: 20px;
+  gap: 30px;
+  flex-wrap: wrap;                /* mantém responsivo em telas pequenas */
+}
+
+/* Faz com que a right-side fique sempre à direita da imagem */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* alinha ao topo da imagem */
+  align-items: flex-start;
+}
+
+/* Ajuste da time-box no desktop */
+.right-side .time-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+/* Bloco do título */
+.title-eng {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  min-width: 150px; /* evita que encolha demais */
+}
+
+/* Imagem */
+/* Título à esquerda */
+.title-eng {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  min-width: 130px;
+}
+
+/* Imagem no meio */
+.inicial-log {
+  max-height: calc((95vh - 100px) * 0.9);
+  width: auto;
+  max-width: 40vw;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  object-fit: contain;
+  /* Afasta a imagem do footer */
+  margin-bottom: 50px;
+}
+
+/* Time-box à direita */
+.right-side .time-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* Time-box */
+.right-side .time-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.time-box {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  min-width: 180px;
+  max-width: 220px;
+}
+
+.time-box h2 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.clock {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Footer */
+footer {
+  position: fixed;       /* fixa na tela */
+  bottom: 0;
+  left: 0;
+  width: 100%;           /* cobre toda a largura */
+  height: 70px;          /* altura do footer */
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  z-index: 999;          /* fica acima de outros elementos */
+
+  display: flex;         /* flex para centralizar */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+}
+
+
+
+/* Responsivo: quebra para coluna em telas pequenas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* aumenta o espaçamento */
+    padding: 15px; /* um pouco mais de padding para respiração */
+  }
+
+  .title-eng {
+    text-align: center;
+    font-size: 2.5rem; /* aumenta o título no mobile */
+    min-width: auto; /* deixa o título ocupar a largura disponível */
+  }
+
+  .inicial-log {
+    max-width: 90vw; /* aumenta a imagem no mobile */
+    max-height: 50vh; /* deixa proporcional e visível */
+    margin-bottom: 30px;
+  }
+
+  .right-side .time-box-container {
+    align-items: center;
+    gap: 20px; /* aumenta o espaço entre os time-boxes */
+  }
+
+  .time-box {
+    min-width: 200px;  /* aumenta levemente */
+    max-width: 90vw;   /* ocupa mais da tela */
+    padding: 16px 24px; /* aumenta espaçamento interno */
+  }
+
+  .time-box h2 {
+    font-size: 1.3rem; /* título do box maior */
+  }
+
+  .clock {
+    font-size: 1.5rem; /* relógio maior e mais legível */
+  }
+}
